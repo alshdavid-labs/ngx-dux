@@ -3,5 +3,9 @@
   "dest": "../../dist/ngx-dux",
   "lib": {
     "entryFile": "src/public_api.ts"
-  }
+  },
+  "whitelistedNonPeerDependencies": [
+    "tslib",
+    "lodash"
+  ]
 }

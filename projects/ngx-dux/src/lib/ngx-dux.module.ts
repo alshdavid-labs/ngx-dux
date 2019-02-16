@@ -13,9 +13,6 @@ export function setAppInjector(injector: Injector) {
 
 export const updateFormAction = '[Dux-Forms] Update Form'
 
-export interface IState {
-  forms: Record<string, any>
-}
 
 export interface IAction {
   type: string
@@ -32,8 +29,8 @@ export const updateForm = (id: string, data: any) => {
   }
 }
 
-function reducer(
-  state: IState = { forms: {} }, 
+export function reducer(
+  state = {}, 
   action: IAction
 ) {
   if (action.type !== updateFormAction) {
@@ -41,7 +38,7 @@ function reducer(
   }
   const newState = cloneDeep(state)
   const newForm = action.payload
-  newState.forms[newForm.id] = newForm.data
+  newState[newForm.id] = newForm.data
   return newState
 }
 
